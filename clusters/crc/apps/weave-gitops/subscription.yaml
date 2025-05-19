@@ -4,8 +4,8 @@ metadata:
   name: weave-gitops
   namespace: weave-gitops
 spec:
-  channel: stable
   name: weave-gitops
+  channel: stable
+  installPlanApproval: Automatic
   source: community-operators
   sourceNamespace: openshift-marketplace
-  installPlanApproval: Automatic
