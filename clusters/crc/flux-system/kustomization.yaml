@@ -4,6 +4,7 @@ resources:
   - gotk-components.yaml
   - gotk-sync.yaml
   - scc.yaml
+  - weave-gitops-kustomization.yaml
 
 patches:
   - patch: |

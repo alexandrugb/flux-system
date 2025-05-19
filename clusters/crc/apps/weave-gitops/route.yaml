@@ -6,9 +6,8 @@ metadata:
 spec:
   to:
     kind: Service
-    name: weave-gitops-ui
+    name: weave-gitops
   port:
-    targetPort: 9001
+    targetPort: http
   tls:
     termination: edge
-  wildcardPolicy: None
