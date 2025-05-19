@@ -1,0 +1,44 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: flux-restricted
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: flux-scc
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegedContainer: false
+allowPrivilegeEscalation: false
+defaultAddCapabilities: []
+fsGroup:
+  type: MustRunAs
+groups: []
+priority: 10
+readOnlyRootFilesystem: false
+requiredDropCapabilities: []
+runAsUser:
+  type: MustRunAs
+  uid: 65534
+seLinuxContext:
+  type: MustRunAs
+supplementalGroups:
+  type: MustRunAs
+users:
+  - system:serviceaccount:flux-system:source-controller
+  - system:serviceaccount:flux-system:kustomize-controller
+  - system:serviceaccount:flux-system:helm-controller
+  - system:serviceaccount:flux-system:notification-controller
+volumes:
+  - configMap
+  - emptyDir
+  - projected
+  - secret
