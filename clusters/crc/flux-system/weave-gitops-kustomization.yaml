@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./clusters/crc/weave-gitops
+  path: ./clusters/crc/apps/weave-gitops
   prune: true
   sourceRef:
     kind: GitRepository
