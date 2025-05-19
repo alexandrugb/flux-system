@@ -16,29 +16,25 @@ allowHostIPC: false
 allowHostNetwork: false
 allowHostPID: false
 allowHostPorts: false
-allowPrivilegedContainer: false
 allowPrivilegeEscalation: false
+allowPrivilegedContainer: false
 defaultAddCapabilities: []
 fsGroup:
   type: MustRunAs
-groups: []
-priority: 10
-readOnlyRootFilesystem: false
-requiredDropCapabilities: []
 runAsUser:
-  type: MustRunAs
-  uid: 65534
+  type: MustRunAsNonRoot
 seLinuxContext:
   type: MustRunAs
 supplementalGroups:
-  type: MustRunAs
+  type: RunAsAny
 users:
-  - system:serviceaccount:flux-system:source-controller
-  - system:serviceaccount:flux-system:kustomize-controller
-  - system:serviceaccount:flux-system:helm-controller
-  - system:serviceaccount:flux-system:notification-controller
+- system:serviceaccount:flux-system:kustomize-controller
+- system:serviceaccount:flux-system:source-controller
+- system:serviceaccount:flux-system:helm-controller
+- system:serviceaccount:flux-system:notification-controller
 volumes:
-  - configMap
-  - emptyDir
-  - projected
-  - secret
+- configMap
+- downwardAPI
+- emptyDir
+- projected
+- secret
