@@ -4,5 +4,5 @@ resources:
   - namespace.yaml
   - operatorgroup.yaml
   - subscription.yaml
-  - gitops-instance.yaml
+ # - gitops-instance.yaml
   - route.yaml   # ✅ added
