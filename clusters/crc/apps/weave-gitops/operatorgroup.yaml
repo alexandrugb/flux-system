@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: weave-gitops-operatorgroup
+  namespace: weave-gitops
+spec:
+  targetNamespaces:
+    - weave-gitops

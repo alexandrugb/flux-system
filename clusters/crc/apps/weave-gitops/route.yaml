@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: weave-gitops-ui
+  namespace: weave-gitops
+spec:
+  to:
+    kind: Service
+    name: weave-gitops-ui
+  port:
+    targetPort: 9001
+  tls:
+    termination: edge
+  wildcardPolicy: None

@@ -1,0 +1,11 @@
+apiVersion: gitops.weave.works/v1beta1
+kind: GitOps
+metadata:
+  name: weave-gitops-dashboard
+  namespace: weave-gitops
+spec:
+  adminUser:
+    username: admin
+    password: Goga27424440@ # password: admin
+  ingress:
+    enabled: false
